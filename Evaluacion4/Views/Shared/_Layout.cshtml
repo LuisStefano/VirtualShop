@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Virtual Shop</title>
+    @*Importacion de la libreria de bootstrap:*@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*Importacion de mis clase personalizada de CSS:*@
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/carrito.css"/>
+    <link rel="stylesheet" href="~/css/details.css">
+    <link rel="stylesheet" href="~/css/glider.css">
+    <link rel="stylesheet" href="~/css/slider.css">
+    <link rel="stylesheet" href="~/css/stylesPopUp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://css.gg/log-in.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="blur" id="bodyBlur">
+        <header>
+            @* ¡Queda pendiente mejorar este codigo! *@
+         <nav class="mb-3 navbar-principal">
+            <div class="contenedor-navbar">
+                <div class="page-title">
+                    <a asp-area="" asp-controller="Home"
+                       asp-action="Index">Virtual Shop.</a>
+                </div>
+                <div class="separador-logo"></div>
+                <div class="contenedor_opciones-navbar">
+                    <ul class="lista-opciones">
+                        @* <li class="opcion">
+                                <a style="color:white!important" class="" asp-area=""
+                                asp-controller="Home" asp-action="Index">Home</a>
+                            </li> *@
+                        <li class="opcion">
+                            <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
+                               asp-action="Index">Productos</a>
+                        </li>
+                        @* <li class="opcion">
+                                <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
+                                    asp-action="Prueba">Prueba</a>
+                            </li>  *@
+                        <li class="opcion">
+                            <a style="color:white!important" class="" asp-area="" asp-controller="Producto"
+                               asp-action="CompraFactura">Factura</a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+        </header>
+        @*Contenedor del bloque principal de la aplicacion:*@
+        <div class="container col-12">
+            <main role="main" class="pb-3">
+                @* Se encarga de renderizar el bloque principal de la aplicacion: *@
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="footer" id="footerProyecto">
+            <div class="contenedor-Marca_y_derechos-reservados">
+                &copy; 2021 - VirtualShop
+            </div>
+        </footer>
+    </div>
+    <div class="contenedor-modal" id="contenedorModal">
+        <div class="modal__body">
+            Ya se añadio al carrito.
+        </div>
+        @*<div class="modal__button">
+                <button class="btn-cerrar" id="btnCerrar">Cerrar</button>
+            </div>*@
+    </div>
+    <div class="contenedor-modal__resumen" id="contenedorModalResumen">
+        <div class="modal__body-resumen">
+            <h5>¿Confirma su compra?</h5>
+            <a class="btn-pagarOneAll" asp-controller="Producto" asp-action="PagarxProductos">Pagar</a>
+            <a id="btnCerrar" class="btn-cerrar-popUp" style="color:black; cursor:pointer;">Cerrar</a>
+        </div>
+    </div>
+    @*<div class="contenedor-modal__resumen" id="contenedorModalResumen">
+        <div class="modal__body-resumen">
+            <h5>¿Confirma su compra?</h5>
+            <a class="btn-pagarOneAll" asp-controller="Producto" asp-action="PagarxProducto" asp-route-id="@Item.">Pagar</a>
+        </div>
+    </div>*@
+    <script defer src="~/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
+    <script src="~/js/singleSlider.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/addAndRemoveitems.js" type="text/javascript"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/popUpWindowGoToCart.js" type="text/javascript"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/manejoJson.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>
